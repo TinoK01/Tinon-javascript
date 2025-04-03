@@ -1,0 +1,494 @@
+const myClasses = (
+  <a href= "https://www.coecademy.com">
+    <h1>
+      Sign Up!
+    </h1>
+  </a>
+
+) ;
+
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+
+const container = document.getElementById('app');
+const root = createRoot(container);
+root.render(<h1>Render me!</h1>;
+
+const myList = (
+  <ul>
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+  </ul>
+);
+
+const title = <hl>Welcome all!</hl>
+
+const example = <hl id="example">JSX Attributes</hl>;
+
+
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+
+const container = dociment.getElementById('app');
+const root = createRoot(container);
+
+root.render(<hl> This is an example.</hl>);
+
+let expr = <hl>{10 * 10}</hl>;
+// above will be rendered as <hl>100</hl>
+
+// When rendered, this JSX expsression...
+const heading = <h1 className="large-heading">Codecademy</h1>;
+
+// ...will be rendered as this HTML
+<h1 class="large-heading">Codecademy</h1>
+
+// All of the list items will display if
+// baby is false and age is above 25
+const tasty = (
+  <u1>
+    <li>Applesauce</li>
+    { !baby && <li>Pizza</li> }
+    { age > 15 && <li>Brussels Sprout</li> }
+    { age > 20 && <li>Oysters</li> }
+    { age > 25 && <lI>Grappa</li> }
+ </ul>
+);
+
+// Using ternary operator
+const headline = (
+  <h1>
+    { age >= drinkingAge ? 'Buy Drink' : 'Do Teen stuff' }
+  </h1>
+);
+
+// Using if/else outiside of JSX
+let text;
+
+if (age >= drinkingAge) { text = 'Buy Drink' }
+else { text = 'Do Teen stuff' }
+
+const headline = <h1>{ text }</h1>
+
+// Using && operator. Renders as empty div if length is 0
+const unreadMessages = [ 'hello?', 'remember me!'];
+
+const update = (
+  <div>
+    {unreadMessages.length > 0 &&
+      <h1>
+        You have {unreadMessages.length} unread messages.
+      </h1>
+    }
+  </div>
+);
+
+<p<{ Math.random() }</p>
+
+//above JSX will be rendered something like this:
+<p>0.88</p>
+
+// Basic example
+const handleClick () => alert("Hello world!);
+
+const button = <button onClick={handleClick here</button>;
+
+//Example with event parameter
+const handleMouseOver = (event) => event.target.style.color = 'purple';
+
+const button2 = <div onMouseOver={handleMouseOver}>Drag here to change color</div>;
+
+const introClass = "introduction";
+const introParagraph = <p className={introClass}>Hello world</p>;
+
+const strings = ['Home', 'Shop', 'About Me'];
+
+const listItems = strings.map(string => <li>{string}</li>);
+
+<ul>{listItems}</ul>
+
+<br />
+<img src="example_url" />
+
+// The following JSX...
+const hl = <hl className="header">Hello world</hl>;
+
+// ...will be compiled to the following;
+const h1 = React.createElement(
+  'h1',
+  {
+    className; 'header',
+  },
+  'Hello world'
+);
+
+<ul>
+  <li key="key1">One</li>
+  <li key="key2">Two</li>
+  <li key="key3">Three</li>
+  <li key="key4">Four</li>
+</ul>
+
+function MyComponent () {
+  return <hl>Hello from MyComponent!</hl>
+}
+
+function MyComponent () {
+  return <hl>Hello world!<hl>;
+}
+
+import React from 'react';
+
+import React from 'react';
+
+function MyFunctionComponent () {
+  return <hl>Hello from a function component!</hl>;
+}
+
+class MyClassComponent extends React.Component {
+  render () {
+    reuturn <hl>Hello from a class component!</hl>;
+    }
+}
+
+// This is considered a component by React.
+<ThisComponent />
+
+// This is considered a JSX HTML tag.
+<div>
+
+function Greeting () {
+  return (
+    <>
+      <h1>Hello, welcome to...</hl>
+      <h2>Learn React!</h2>
+    </>
+  );
+}
+
+export default Greeting;
+
+
+import Greeting from './Greeting'
+
+//Component to be rendered
+function MyComponent () {
+  return <hl>Hello, World!</hl>
+}
+
+//Rendering the component
+ReactDOM.createRoot(
+  document.getElementById('app')
+).render(<MyComponent />);
+
+return (
+    <blockquote>
+      <p>Be the change you wish to see in the world.</p>
+      <cite>
+        <a
+          target="_blank"
+          href="https://en.wikipedia.org/wiki/Mahatma_Gandhi"
+        >
+          Mahatma Gandhi
+        </a>
+      </cite>
+    </blockquote>
+);
+
+
+function Integer() {
+  const value = 3.14;
+  const asInteger = Math.round(value);
+  return <p>{asInteger}</p>;
+}
+
+const seaAnemones = {
+  src:
+    'https://commons.wikimedia.org/wiki/Caregory:Images#/media/File:Anemones_0429.jpg ',
+  alt:  'Sea Anemones ',
+  width:  '300px ',
+};
+
+function SeaAnemones () {
+  return (
+    <div>
+      <h1>Colorful Sea Anemones</h1>
+      <img
+        src={seaAnemones.src}
+        alt={seaAnemones.alt}
+        width={seaAnemones.width}
+      />
+    </div>
+  );
+}
+
+function Header() {
+  return (
+    <div>
+      <logo />
+      <h1>Codecademy</h1>
+    </div>
+  );
+}
+
+function Hello(props) {
+  return <h1>Hi there, {props.firstName}!</h1>;
+}
+
+ReactDOM.createRoot(document.getElementById('app')).render(<Hello firstName="Kim" />)
+
+function Profile(props) {
+  return (
+    <div>
+      <img src={props.profilePicturesSrc} alt="" />
+      <h2>{props.name}</h2>
+    </div>
+  );
+}
+
+Profile.default.Props = {
+ profilePictureSrc: 'https://example.com/no-profile.picture.jpg',
+};
+
+function MyFriends(props) {
+  return (
+    <div>
+      <h1>My friends</h1>
+      <Profile>
+        name="Jane Doe"
+        profilePictureSrc="https://example.com/jane-doe.jpg"
+      />
+      <Profile name="John Smith" />
+    </div>
+  );
+}
+
+<SpaceShip ride="Millennium Falcon"/>
+
+<List> // opening tag
+  <li></li> // child 1
+  <li></li> // child 2
+  <li></li>// child 3
+</List> // closing tag
+
+// instead of confusing React with code like this:
+if (userName !== '') {
+ useEffect(() => {
+   localStorage.setItem('savedUserName', userName);
+ });
+}
+
+// Instead of confusing React with code like this:
+if (userName) !=='') {
+ useEffect(() => {
+   loclaStorage.setItem('savedUserName', useName);
+ });
+}
+
+// We can accomplish the same goal, while consistently calling our hook every time:
+useEffect(() => {
+ if (userName) !== '') {
+   localStorage.setItem('saveduserName', userName);
+ }
+});
+
+import React, { useState, useEffect } from 'react';
+
+function TitleCount() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    document.title = `You clicked $ {count} times`;
+  }, [count]);
+
+  return <button onClick={ (prev => setCount(prev+ 1)}>+</button>;
+}
+
+useEffect (() => {
+  document.addEventListener('keydown', handleKeydown);
+  //Clean up the effect:
+  return () => document.removeEventListener('keydown', handleKeydown);
+});
+
+function App(props) {
+ const [title, setTitle] = useState('');
+ useEffect(() => {
+   document.title = title;
+ }, [title]);
+
+ const [time, setTime] = useState(0);
+ useEffect(() => {
+  const intervalId = setInterval(() => setTime((prev) => prev + 1), 1000);
+  return () => clearInterval(intervalId);
+ }, []);
+
+ // ...
+}
+
+useEfect(() => {
+ alert('called after every render');
+});
+
+useEffect (() => {
+ alert('called after first render');
+}, []);
+
+useEffect(() => {
+ alert('called when value of `endpoint` or `id` changes`);
+}, [endpoint, id]);
+
+const [currentState, stateSetter] = useState(initialState); 
+
+function Counter({ initialCount }) {
+ const [count, setCount] = useState(initialCount);
+ return (
+   <div>
+     count: {count}
+     <button onClick={ () => setCount(initialCount){>Reset</button>
+     <button onClick=>{ () => setCount((prevCount) => prevCount - 1)}>-</button>
+     <button onClick={ () => setCount((prevCount) => prevCount + 1)}>+</button>
+   </div>
+ );
+}
+
+function App() {
+ const [sport, setSport] = useState('basketball');
+ const [points, setPoints] = useState(31);
+ const [hobbies, setHobbies] = useState([]);
+}
+
+function Store() {
+  const [sell, setSell] = useState("anything");
+
+
+  return <h1>I'm selling {sell}.</h1>;
+
+}
+
+function Week(props){
+
+  return <h1>Today is {props.day}!</h1>;
+
+}
+
+// This is a stateless child component.
+function BabyYoda (props) {
+  return <h2>I am {props.name}!</h2>;
+}
+
+// This is a stateful Parent element.
+function Yoda() {
+  const [name, setName] = useState("Toyoda")
+
+  // The child component will render information passed down from the parent component.
+  return <BabyYoda name={name} />;
+
+}
+
+function Clock(porps) {
+  const [ date, setDate ] = useState(new date());
+
+  const updateTime = () => {
+    setDate(new Date());
+  }
+
+  return (
+    <div>
+      <h1>It is currently {date.toLocaleTimeString()}</h1>
+      <h2>{props.subtitle}</h2>
+      <button onClick={updateTime}>Update the clock</button>
+    </div>
+  );
+}
+
+function Name() {
+  const [name, setName] = useState('');
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  }
+
+  return (
+    <div>
+      <input onChange={handleNameChange} />
+      <p>{name}</p>
+    </div>
+  );
+
+}
+
+function MyComponent() {
+  const [ text, setText ] = useState("");
+
+  const handleChange(event) => {
+    setText(event.target.value);
+  }
+
+  return (
+    <div>
+      <input onChange={handleChange} value={text} />
+      <p>You typed {text}</p>
+    </div>
+  );
+}
+
+class CounterContainer extends react.Component {
+  consttructor(props) {
+    super(props);
+    this.state = { count: 0 };
+    this.increment = this.increment.bind(this);
+  }
+
+  increment() {
+    this.setState((oldstate) => {
+      return { count: oldState.count + 1 };
+    });
+  }
+
+  render() {
+    return <Counter count={this.state.count} increment={this.increment} />;
+  }
+}
+
+class Counter extends React.Component {
+  render() {
+    return (
+      <div>
+        <p>The count is {this.props.count}.</p>
+        <button onClick={this.props.increment}>Add 1</button>
+      </div>
+    );
+  }
+}
+
+
+// Passing the styles as an object
+const color = {
+  color: 'blue',
+  bakcground: 'sky'
+}
+<h1 style={color}>Hello</h1>
+
+// Passing the styles with an inline object, as a shorthand
+<h1 style={{ color: 'red' }}I am red!</h1>
+
+// Styles in  CSS:
+// font-size: 20px;
+// color: blue;
+
+// Would look like this style object in React:
+const style = {
+  fontSize: 20,
+  color: 'blue',
+};
+
+const uncontrolledInput = <input />;
+
+const controlledInput = (
+  <input value={stateValue} onChange={handleInputChange} />
+);
+
+const controlledInput = (
+  <input value={stateValue} onChange={handleInputChange} />
+);
