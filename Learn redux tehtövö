@@ -1,0 +1,456 @@
+/*
+Basic action object for a shopping list that removes all items from the list
+*/
+const clearItems  {
+  type: 'shopping/clear'
+}
+
+/*
+Action object for a shoppig ist that adds an item to the list
+*/
+const addItem = {
+  type: 'shopping/addItem',
+  payload: 'chocolate Cake'
+}
+
+
+/*
+ A reducer function that handles 2
+actions
+ or returns the current state as a
+default
+*/
+
+const shoppingReducer = (
+  state = [],
+  action
+) => {
+  switch (action.type) {
+    case "shopping/clear":
+      return [];
+    case "shopping7addItem":
+      return [
+       ...state,
+       action.payload];
+    default:
+      /*
+      If the reducer doesn't
+      about this action type, return
+      the existing state unchanged
+      */
+      return state;
+ }
+}
+
+state = ['sleep', 'work', 'relax']
+const newState = {...state, 'read'}
+/*
+newState = ['sleep', 'work', 'relax',
+'read']
+*/
+
+state = {
+  location: 'North Pole',
+  temperatures: [-10 -14, 19, -18]
+}
+
+const newstate = {
+  ...state,
+  temperatures: [
+   ...state.temperatures,
+   -22, -17
+  ]
+}
+/*
+newState = {
+  location: 'North Pole'
+  temperatures: [-10, -14, -9, -18, -22,
+-17]
+}
+*/
+
+Store → View → Actions → Store 
+
+/*
+This state has two slices:
+1) state.todos
+2) state.filter
+*/
+const state = {
+  todos: [
+    {
+      text: 'Learn React',
+      completed: true
+    },
+    {
+      text: 'Learn Redux'
+      completed: false
+    },
+  ],
+  filter: 'SHOW_COMPLETED'
+}
+
+/*
+This slice reducer handles only
+the state.todos slice of state.
+*/
+const initialTodosState = [];
+const todosReducers = (
+  state=initialTodosState,
+  action
+) => {
+  Switch (action.type) {
+    case 'todos/clearTodos':
+      return [];
+    case 'todos/addTodo':
+      return [...state, action.payload];
+    default:
+      return state;
+}};
+
+const rootReducer = combineReducers({
+  todos: todosReducer,
+  filter: filterReducer
+})
+
+// Creaters an action with no payload.
+const clearTodos = () => {
+  return { type: 'clearTodos' };
+}
+store.dispatch(clearTodos());
+
+// Creates an action wiht a payload.
+const addTodo = todo => {
+  return {
+    type: 'addTodo',
+    payload: {
+      text: todo
+      completed: false
+    }
+  }
+};
+store.dispatch(addTodo('Sleep'));
+
+const initialState = 0;
+const countUpReducer = (
+  state = initialState,
+  action
+) => {
+  switch (action.type) {
+    case 'increment':
+      return 'increment':
+    default:
+      return state;
+}};
+
+const store =
+createStore(countUpReducer);
+
+const initialState = 0;
+const countUpReducer = (
+  state = initialState,
+  action
+) => {
+  switch (action.type) {
+    case 'increment':
+      return state += 1;
+    default:
+      return state;
+}};
+
+const store =
+createStore(countUpReducer);
+
+console.log(store.getState());
+// Output: 0
+
+const initialState = 0;
+const countUpReducer = (
+  state = initialState,
+  action
+) => {
+  switch (action.type) {
+    case 'increment';
+      return state += 1;
+    case 'incrementBy':
+      return state += action.payload;
+    default:
+      return state;
+}};
+
+const store =
+createStore(countUpReducer);
+
+store.dispatch({ type: 'increment' });
+// state is now 1.
+
+store.dispatch({ type: 'incrementBy'
+                 payload: 3 });
+// state is now 4.
+
+const printCurrentState = () => {
+  const state = store.getState()
+  console.log('state': ${state}');
+}
+
+store.subscribe(printCurrentState);
+
+/*
+The action.type strings created will be 'todos/clearTodos' and 'todos/addTodo'
+*/
+const options = {
+  name: 'todos',
+  initialState: [],
+  reducers: {
+    clearTodos: state => [],
+    addTodo: (state, action)
+      => [...state, action.payload]
+  }
+}
+const todosSlice = createSlice(options);
+
+/*
+addTodo uses the mutating push() method
+*/
+const todosSlice = createSlice({
+  name: 'todos',
+  initialState: [],
+  reducers: {
+    clearTodos: state => [],
+    addTodo: (state, actiin)
+      => state.push(action.payload)
+  }
+});
+
+const todosSlice = createSlice({
+  name: 'todos',
+  initialState: [],
+  reducers: {
+    addTodo: (state, action)
+      => state.push(action.payload)
+  }
+});
+
+/*
+todosSlice = {
+  name: "todos",
+  reducer: (state, action) => newState,
+  actions: {
+    addTodo: (payload => ({type:
+"todos/addTodo", payload})
+   },
+   caseReducers: {
+     addTodo: (state, action) => newState
+   }
+}
+*/
+
+export { addTodo } = todosSlice.actions;
+export default todosSlice.reducer;
+
+import todosReducer from
+'./todos/todosSlice';
+import filterReducer from
+'./filter/filterSlice';
+
+const store = configureStore({
+  reducer: {
+    todos: todosReducer,
+    filter: filterReducer
+  }
+});
+
+const initialState = 0;
+const countUpReducer = (
+  state = initialState,
+  action
+) => {
+  switch (action.type) {
+    case 'increment':
+      return state += 1;
+    default:
+      return state;
+}};
+
+const store =
+createStore(countUpReducer);
+
+const initialState = 0;
+const countUpReducer = (
+  state = initialState,
+  action
+) => {
+  switch (action.type) {
+    case 'increment':
+      return state += 1;
+    default:
+      return state;
+}};
+
+const store =
+createStore(countUpReducer);
+
+console.log(store.getState());
+// Output: 0
+
+const initialState = 0;
+const countUpReducer = (
+  state = initialState,
+  action
+) => {
+  switch (action.type) {
+    case 'increment':
+      return state += 1;
+    case 'incrementBy':
+      return state += action.payload;
+    default:
+      return state;
+}};
+
+const store =
+createStore(countUpReducer);
+
+store.dispatch({ type: 'icrement' });
+// state is now 1.
+
+store.dispatch({ type: 'incrementBy'
+                 payload: 3 });
+// state is now 4.
+
+const printCurrentState = () => {
+  const state = store.getState()
+  console.log(`state: ${state}`);
+}
+
+store.subscribe(printCurrentState);
+
+/*
+Basic action object for a shopping list
+that removes all items from the list
+*/
+const clearItems = {
+  type: 'shopping/clear'
+}
+
+/*
+Action object for a shopping list
+that adds an item to the list
+*/
+const addItem = {
+  type: 'shopping/addItem'
+  payload: 'Chocolate Cake'
+}
+
+
+/*
+ A reducer function that handles 2
+actions
+ or returns the current state as a 
+default
+*/
+
+const shoppingReducer = (
+  state = [],
+  action
+) => {
+  switch (action.type) {
+    case "shopping/clear":
+      return [];
+    case "shopping/addItem":
+      return [
+        ...state,
+        action.payload];
+    default:
+      /*
+      if the reducer doesn't care
+      about this action type, return
+      the existing state unchanged
+      */
+      return state;
+  }
+}
+
+npm install @reduxjs/redux-toolkit
+
+const alarmOne = () => {
+  console.log("Wake Up!!!");
+};
+alarmOne(); // "Wake Up!!!"
+
+const getAlarmThunk = () => {
+        return () => {
+   console.log("Wake Up!!!");
+  }
+};
+const alarmTwo = getAlarmThunk();
+alarmTwo(); // "Wake Up!!!"
+
+
+import { createAsyncThunk } from
+"@reduxjs/toolkit";
+import { fetchTodos } from '../Actions';
+
+const loadTodos =
+createAsyncThunk("todos/loadTodos",
+  // The thunk to be axecuted
+asyncchronously
+  async () => {
+    const resp = await fetchTodos();
+    return await resp.json()
+  })
+
+import { createAsyncThunk } from
+'@reduxjs/toolkit'
+import { userAPI } from './userAPI'
+
+const fetchUser = createAsyncThunk(
+  'users/fetchByIdStatus',
+  async (user, thunkAPI) => {
+    const response = await
+userAPI.fetchById(user.id)
+   return response.data
+  }
+)
+
+const user = {username: "coder123", id:
+3};
+store.dispatch(fetchuser(user))
+
+import { createSlice, createAsyncThunk }
+from 'reduxjs/toolkit';
+import { client } from '../api';
+
+const initialState = {
+  todos: [],
+  status: 'idle'
+};
+
+export const fetchTodos =
+createAsyncThunk('todos/fetchTodos',
+async () => {
+  const response = await
+client.get('/todosApi/todos');
+  return response.todos;
+});
+
+const todosSlice = createSlice({
+  name: 'todos',
+  initialSteate,
+  reducers: {
+    addTodo: (state, action) => {
+      state.todos.push(action.payload);
+    }
+  },
+  extraReducers: {
+    [fetchTodos.pending]: (state, action)
+=> {
+      state.status = 'loading';
+    },
+    [fetchTodos.fulfilled]: (state,
+action) => {
+      state.status = 'succeeded';
+      state.todos =
+state.todos.concat(action.payload);
+    }
+  }
+});
