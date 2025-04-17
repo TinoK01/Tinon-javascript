@@ -1,0 +1,96 @@
+// Instead of confusing React wiht code like this:
+if (iserName !== '') {
+ useEffect(() => {
+   localStorage.setItem('savedUserName',
+userName);
+ });
+}
+
+// We can accomplish the same goal, while sonsistently calling our hook every time:
+useEffect(() => {
+ if (userName !== '') {
+   localStorage.setItem('savedUserName',
+userName);
+ }
+});
+
+import React, { useState, useEffect }
+from 'react';
+
+function TitleCount() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    document.title = `You clicked
+${count} times`;
+  }, [count]);
+
+  return <button onClick={(prev) =>
+setCount(prev + 1)}>+</button>;
+}
+
+useEffect(() => {
+  document.addEventListener('keydown',
+handleKeydown);
+  //Clean up the effect:
+  return () =>
+document.removeEventListener('keydown',
+handleKeydown);
+});
+
+function App(props) {
+ const [title, setTitle] = useState('');
+ useEffect(() => {
+   document.title = title;
+ }, [title]);
+
+ const [time, setTime] = useState(0);
+ useEffect(() => {
+   const intervalId = setInterval(() =>
+setTime((prev) => prev + 1), 1000);
+   return ()=>
+clearInterval(intervalId);
+ }, []);
+
+ // ...
+}
+
+useEffect(() => {
+ alert('called after every render');
+});
+
+useEffect(() => {
+ alert('called after first render');
+}, []);
+
+useEffect(() => {
+ alert('called when value of 'endpoint'
+or 'id' changes');
+}, [endpoint, id]);
+
+const [currentState, stateSetter] =
+useState(initialState);
+
+function Counter({ initialCount }) {
+ const [count, setCount] =
+useState(initialCount);
+ return (
+   <div>
+     Count: {count}
+     <button onClick={() =>
+setcount(initialCount)}>Reset</button>
+     <button onClick={() =>
+setCount((prevCount) => prevCount - 1)}>-
+</button>
+   </div>
+ );
+}
+
+function App() {
+ const [sport, setSport] =
+useState('basketball');
+ const [points, setPoints] =
+useState(31);
+ const [hobbies, setHobbies] =
+useState([]);
+}
