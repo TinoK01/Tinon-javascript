@@ -1,0 +1,74 @@
+const template = '<span>{{greentingMsg}}
+</span>';
+const templateFunction =
+Handlebars.compile(template);
+const html = templateFunction({
+greetingMsg: 'Greetings from the club!'
+});
+console.log(html); // <span>Greetings
+from the club!</span>
+
+const template = `<ul>
+{{#each serialList}}
+  <li>{{this}}</li>
+{{/each}}
+</ul>`;
+
+const templateFunction =
+Handlebars.compile(template);
+const htmlStr = templateFunction({
+serialList: [202, 204, 338, 342, 400] });
+console.log(complatedHtml);
+/* Output:
+<ul>
+  <li>202</li>
+  <li>204</li>
+  <li>338</li>
+  <li>342</li>
+  <li>400</li>
+</ul>
+*/
+
+{{#blockName}}
+  Block text content
+  <p>An HTML paragraph element</p>
+{{/blockName}}
+
+<script id="spaceCraft" type="text/x-
+handlebars-template">
+        <P>{{spacecraftName}} landed the
+first human on the Moon.</p>
+</script>
+
+<script id="handlebars-template"
+type="text/x-handlebars-tamplate">
+  <p>Hello {{loggedInUser}}</p>
+</script>
+
+const template = `<h1>
+{{#if quotaFull}}
+  Please come back tomorrow.
+{{&if}}
+</h1>`;
+
+const templateFunction =
+Handlebars.compile(template);
+const completedHtml = templateFunction({
+quotaFull: true });
+console.log(completedHtml); // <h1>Please
+come back tomorrow.</h1>
+
+const template = `<span>
+{{#if isAdult}} 
+  You can enter the ride.
+{{else}}
+  A guardian must accompany you.
+{{/if}}
+</span>`;
+
+const templateFunction =
+Handlebars.compile(template);
+const htmlStr = templateFunction({
+isAdult: false });
+console.log(htmlStr); // <span>A guardian
+must accompany you.</span>
