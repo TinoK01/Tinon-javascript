@@ -1,0 +1,338 @@
+//Selecting DOM elements and adding an event listener in JS
+const menu =
+document.getElementById('menu');
+const closeMenuButton =ById('close-menu-button');
+closeMenuButton.addEventListener('click',
+() => {
+    menu.style.display = 'none';
+});
+
+//Selecting DOM elements and adding an event listener in jQuery
+$('#close-menu-button').on('click', () =>
+{
+  $('#menu').hide();
+});
+
+$(document).ready(function() {
+  // This code only runs after the DOM is loaded.
+  alert('DOM fully loaded!');
+});
+
+//A variable representing a JQuery object
+const $myButton = $('#my-button');
+
+<html>
+  <head></head>
+  <body>
+    <!-- HTML code -->
+
+    <!--The jQuery library-->
+    <script
+src="https://code.jquery.com/jquery-
+3.3.1.min.js"></scipt>
+    
+    <!--Site-specific JavaScript code
+using jQuery-->
+    <script src="script.js"></script>
+  </body>
+</html>
+
+// The '#menu' element will alternate
+between
+// gradually sliding down and gradually
+sliding up
+// every time the '#menu-button' is
+clicked.
+$('#menu-button').on('click', () => {
+  $('#menu').slideToggle();
+});
+
+// The '#menu' element will gradually
+appear
+// on the page when the '#menu-button' is
+clicked.
+$('#menu-button').on('click', () => {
+  // equivalent to $('#menu).fadeIn(400,'swing')
+  $('#menu').fadeIn();
+});
+
+// The '#menu' element will gradually
+disappear from
+// The page when the '#menu-button' is
+clicked.
+$('#menu-button').on('click () => {
+  // equivalent to
+$('#menu').fadeOut(400, swing')
+  $('#menu').fadeOut();
+});
+
+//Instantly reveals the //Selecting DOM elements and adding an event listener in JS
+const menu =
+document.getElementById('menu');
+const closeMenuButton =ById('close-menu-button');
+closeMenuButton.addEventListener('click',
+() => {
+    menu.style.display = 'none';
+});
+
+//Selecting DOM elements and adding an event listener in jQuery
+$('#close-menu-button').on('click', () =>
+{
+  $('#menu').hide();
+});
+
+$(document).ready(function() {
+  // This code only runs after the DOM is loaded.
+  alert('DOM fully loaded!');
+});
+
+//A variable representing a JQuery object
+const $myButton = $('#my-button');
+
+<html>
+  <head></head>
+  <body>
+    <!-- HTML code -->
+
+    <!--The jQuery library-->
+    <script
+src="https://code.jquery.com/jquery-
+3.3.1.min.js"></scipt>
+    
+    <!--Site-specific JavaScript code
+using jQuery-->
+    <script src="script.js"></script>
+  </body>
+</html>
+
+// The '#menu' element will alternate
+between
+// gradually sliding down and gradually
+sliding up
+// every time the '#menu-button' is
+clicked.
+$('#menu-button').on('click', () => {
+  $('#menu').slideToggle();
+});
+
+// The '#menu' element will gradually
+appear
+// on the page when the '#menu-button' is
+clicked.
+$('#menu-button').on('click', () => {
+  // equivalent to $('#menu).fadeIn(400,'swing')
+  $('#menu').fadeIn();
+});
+
+// The '#menu' element will gradually
+disappear from
+// The page when the '#menu-button' is
+clicked.
+$('#menu-button').on('click () => {
+  // equivalent to
+$('#menu').fadeOut(400, swing')
+  $('#menu').fadeOut();
+});
+
+//instantly reveals the '#menu' element
+when the '#show-menu-button' is clicked.
+$('#show-menu-button').on('click', () =>
+{
+  $('#menu').show();
+});
+
+//The '#menu' element will alternate
+between being displayed and hidden every
+time the '#menu-button' is clicked.
+$('#menu-button').on('click', () =>{
+  $('#menu').toggle();
+});
+
+// The .show() effect causes the #menu
+element to
+// appear once the #menu-button element
+is clicked.
+$('#menu-button').on('click', event => {
+  $('#menu').show();
+});
+
+// The '#menu' element will alternate
+between
+// gradually disappearing and gradually
+appearing
+// on the page when the '#menu-button' is
+clicked.
+$('#menu-button).on('click', () => {
+  // equivalent to
+$('#menu').fadeToggle()(400, 'swing')
+  $('#menu').fadeToggle();
+});
+
+// The '#menu' element will gradually
+diappear
+// from the page by sliding ip its
+content when
+// the '#menu-button' is clicked.
+$('#menu-button').on('click', () => {
+  // slide up over half a second
+  $('#menu').slideUp(500);
+});
+
+//The '#menu' element will disappear
+instantly from the page when the '#hide-
+menu-button' is clicked.
+$('#hide-menu-button').on('click', () =>
+{
+  $('#menu').hide();
+});
+
+// The '#menu' element will gradually
+appear on
+// The page by slding down its content
+when the
+// '#menu-button' element is clicked.
+$('#menu-button').on('click', () => {
+  // menu appears over 400ms duration
+  $('#menu').slideDown();
+});
+
+// A mouse event 'click'
+$('#menu-button').on('click, () => {
+  $('#menu').show();
+});
+
+// A keyboard event 'keyup'
+$('#textbox').on('keyup', () => {
+  $('#menu').show();
+});
+
+// A scroll event 'scroll'
+$('#menu-button').on('scroll', () => {
+  $('#menu').show();
+});
+
+// Hides the '#menu' element when it has
+been clicked.
+$('#menu').on('click', event => {
+  // $(event.currentTarget) refers to the
+'#menu' element that was clicked.
+  $(event.currentTarget).hide();
+});
+
+// Assuming there are several elements
+with the
+// class 'blue-button',
+'event.currentTarget' will
+// refer to the individual element that
+was clicked.
+$('.blue-button').on('click', event => {
+  $(event.currentTarget).hide();
+});
+
+// Two .on() methods for 'mouseenter' and
+// 'mouseleave' events chained onto the
+// '#menu-button' element.
+$('#menu-button').on('mouseenter', () =>
+{
+  $('#menu').show();
+}).on('mouseleave', () => {
+  $('#menu').hide();
+});
+
+//The .on() method adds a 'click' event
+to the '#login' element. When the
+'#login' element is clicked, the callback
+function will be executed, which reveals
+the '#login-form' to the user.
+
+$('#login).on('click' () => {
+  $('#login-form').show();
+});
+
+$('.title').on('mouseenter', event => {
+  $('.tile-text').animate({
+    color: '#FFFFFF,
+    backgroundColor: '#000000'
+  }, 300); // The animation will take place over 300 milliseconds
+});
+
+// Hovering over the '.button' element
+will change the
+// text color to red.
+$('.button').on('mouseenter', event => {
+  $('.text').css('color', 'red');
+});
+
+$('.choice).on('click', () => {
+
+$('.choice').toggleClass('highlighted');
+});
+
+$('h2').css({
+  color: 'blue',
+  backgroundColor: 'gray',
+  fontSize: '24px'
+});
+
+// When the user's mouse exits the
+'.button' element,
+// the 'button-active' class is removed
+from it.
+$('.button').on('mouseleave', event => {
+
+event.currentTarget.removeClass('button-
+active');
+});
+
+// The 'button-active' class is added to
+the '.button' elements
+// when a user's mouse enters the
+'.button' elements.
+$('.button').on('mousenter', () => {
+  $('.button').addClass('button-active');
+});
+
+<div class="parent">
+  <div class"item">Child 1</div>
+  <div class="item">Child 2</div>
+  <div class="item">child 3</div>
+</div>
+
+<ul>ul <!-- this is the parent of li's
+one, two, six and ul three -->
+  <li class="one">li</li>
+  <li class="two">li</li>
+  <ul class"three"> <!-- this is the
+parent of li's four and five -->
+    <li class="four">li></li>
+    <li class="five">li</li>
+  </ul>
+  <li class="six">li</li>
+</ul>
+
+<ul>
+  <li class="one">Item one</li>
+  <li class="two">Item two</lI>
+  <li class="three">Item three</li>
+</ul>
+
+/*
+In HTML:
+<ul id='shopping-list'>
+        <li class='list-item'>Flour</li>
+  <li class='list-item'>Sugar</li>
+</ul>
+*/
+
+// jQuery:
+const listItems = $('#shopping-
+list').find('.list.item');
+
+$('.choice').on('click', event => {
+  // Remove the 'selected' class from any sibings
+
+$(event.currentTarget).siblings().removeClass('selected');
+  // Adds'selected' class to that element only.
+
+$(event.currentTarget).addClass('selected');
+});
