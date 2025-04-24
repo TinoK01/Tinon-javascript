@@ -1,0 +1,367 @@
+<!-- retrieve reference of direct children 
+using view query==>
+<app-users/>
+
+<!-- retrieve reference of projected
+content using content query-->
+<ng-content></ng-content>
+
+// other imports
+import { Component, ViewChild,
+ElementRef, AfterViewInit } form
+"@angular/core"
+
+@Component({
+  selector: "app-users",
+  standalone: true,
+  ...
+})
+export class AppUsersComponent implements
+AfterViewInit {
+  @ViewChild('actionTemplateTef')
+actionButton: ElementRef
+  @ViewChild(AppUserProfileComponent)
+userProfile: AppUserProfileComponent
+  @ViewChild(AppHighlightDirective)
+highlightElement: AppHighlightDirective
+
+ constructor() {
+   // actionButton, userProfile, highlightElement undefined
+ }
+
+ ngAfterViewInit() {
+   // actionButton, userProfile, hightlightElement initialized
+ }
+}
+
+// other imports
+import { Component, ContentChild,
+ElementRef, AfterContentInit } from
+"@angular/core"
+
+@component({
+  selector: "app-user-form",
+  standalone: true,
+  ...
+})
+export class AppUserFormComponent
+implements AfterContentInit {
+
+@ContentChild('submitButtonTemplateRef')
+submitButton: ElementRef
+  @ContentChild(AppUserNameInout)
+userName: AppUserNameinput
+  @ContentChild(AppHighlightDirective)
+highlightElement: AppHighlightDirective
+
+ constructor() {
+   // submitButton, userName, highlightElement undefined
+ }
+
+ ngAfterContentInit() {
+   // submitButton, username, highlightElement initalized
+ }
+}
+
+import { Component, OnInit,
+AfterViewInit, OnDestroy, ElementRef,
+Input, ViewChild } from "@angular/core"
+
+@Component({
+  selector: "app-user",
+  standalone: true,
+  ...
+})
+export class AppUserComponent implements
+OnInit, AfterViewInit, OnDestroy {
+  @input() userId: string
+  @ViewChild('userDetailsef')
+userDeatils: ElementRef
+  constructor() {}
+
+  ngOnInit() {
+    // fetch user data using `userId` input
+  }
+
+  ngAfterViewInit() {
+    // access userDetails
+  }
+
+  ngOnDestroy() {
+    // clean up code before destroying component
+  }
+}
+
+import { Component, OnChanges,
+SimpleChanges, input } from
+"@angular/core"
+
+@Component({
+  selector: "app-user"
+  standalone: true,
+  ...
+})
+export class AppUserComponent implements
+OnChanges {
+  @Input() userId: string
+  @Input() isNewUser: boolean
+  constructor() {}
+
+  ngOnChanges(changes: SimpleChanges) {
+    const userIdChange =
+changes["userId"]       // userId input change
+    
+    if(userIdChange.firstChange) {
+      // log data
+    }
+
+    // other processing
+  }
+}
+
+import processData from './utils';
+import { from } 'rxjs';
+
+const subscription =
+from ([1,2,3]).subscribe((data) =>
+processData(data));
+
+import {Component, OnInit} from
+"@angular/core";
+import { Observable, of } from "rxjs";
+import { map } from "rxjs/operators";
+
+@Component({
+  selector: 'app-user',
+  template: '<p>User: {{ userName }}
+</p>',
+  standalone: true
+})
+export class AppUserComponent implements
+OnInit {
+  userName: string = '';
+
+  ngOnInit() {
+    this.getUserData().pipe(
+      map(user => user.name)
+    ).subscribe(name => this.userName  =
+name);
+  }
+
+  private getUserData(): Observable<{
+name: string, id: string }> {
+    // Simulationg an API call
+    return of({ name:"Codey, id: "12"
+});
+  }
+}
+
+import { Component, OnInit } from
+"@angular/core"
+import { fetchUserData } from "./api"
+@Component({
+  selector: "app-user",
+  standalone: true,
+  ...
+})
+export class AppUserComponent implements
+OnInit {
+  userData: { name: string; id: string }
+= {
+   name: "Mike"
+   id: "1"
+  }
+
+  constructor() {}
+  ngOnInit() {
+
+fetchUserData(this.userData.id).subscribe
+(
+      { // observer
+        next: (data: { name: string; id:
+string }) => {
+           // process new user
+           this.userData = data
+               }
+     }
+    )
+  }
+}
+
+import { Component, OnInit } from
+"@angular/core"
+import { Subscription, map, filter } from
+"rxjs"
+import { fetchUserData } from "./api"
+// observable
+@Component({
+  selector: "app-users",
+  standalone: true,
+  ...
+})
+export class AppUsersComponent implements
+OnInit {
+  users: {
+    id: string
+    name: string
+  }[] = []
+  constructor() {}
+  ngOnInit() {
+    // create subscription
+    const onlyActiveUsersObservable =
+filter((user) => user.isActive)
+(fetchUsersData())      // filtered
+observable
+
+    const mappedActiveUsersObservable =
+map(()user) => ({
+       id: user.id,
+       name: `${user.firstName}
+${user.lastName}`
+    })) (onlyActiveUsersObservable)
+// mapped observable
+
+mappedActiveUsersObservable.subscribe(/*
+observer */)
+  }
+}
+
+import { Component, OnInit } from "@angular/core"
+import { Subscription, map, filter } from "rxjs"
+import { fetchUserData } from "./api"	// observable
+@Component({
+  selector: "app-users",
+  standalone: true,
+  ...
+}) 
+export class AppUsersComponent implements OnInit  {
+  users: {
+    id: string
+    name: string
+  }[] = []
+  constructor() {}
+  ngOnInit() {
+    // create subscription
+    fetchUsersData().pipe(	// pipe
+      filter((user) => user.isActive),	// operator 1
+      map((user) => ({
+        id: user.id,
+        name: `${user.firstName} ${user.lastName}`
+      }))	// operator 2
+    ).subscribe(/* observer */)
+  }
+}
+
+import { Component, OnInit, OnDestroy } from "@angular/core"
+import { Subscription } from "rxjs"
+import { fetchUserData } from "./api"	// observable
+@Component({
+  selector: "app-users",
+  standalone: true,
+  ...
+}) 
+export class AppUsersComponent implements OnInit, OnDestroy  {
+  users: {
+    id: string
+    name: string
+  }[] = []
+  usersSubscription?: Subscription
+  constructor() {}
+  ngOnInit() {
+    // create subscription
+    const usersSub = fetchUserData().subscribe(/* observer */)
+    this.usersSubscription = usersSub
+  }
+
+  ngOnDestroy() {
+    this.usersSubscription?.unsubscribe()	// unsubscribe prior to destroying component
+  }
+}
+
+import { Component } from "@angular/core"
+import { Observable, from } from "rxjs"
+import { users } from "./util/mocks"	// array of users
+@Component({
+  selector: "app-home",
+  standalone: true,
+  ...
+}) 
+export class AppHomeComponent {
+  getUsersData: Observable<{ name: string; id: string }> = from(users)	// create observable emitting each element individually
+
+import { Component } from "@angular/core"
+import { Observable, of } from "rxjs"
+import { user } from "./util/mocks"
+// user object
+@Component({
+  selector: "app-home",
+  standalone: true,
+  ...
+})
+export class AppHomeComponent {
+  getUserData: Observable<{ name: string;
+id: string}> = of(user) // create
+observable emitting the user object
+}
+
+import { Component, OnInit } from
+"@angular/core"
+import { fetchUserData } from "./api"
+@Component({
+  selector: "app-user",
+  standalone: true,
+  ...
+})
+export class AppUserComponent implements
+OnInit  {
+  userData: { name: string, id: string }
+= {
+    name: "Mike",
+    id: "1"
+  }
+  userError = false     // update UI when true
+  constructor() {}
+  ngOnInit() {
+
+fetchUserData(this.userData.id).subscribe
+(
+      { // observer
+        next: (data) => this.userData =
+data,   
+        error: (error) => this.userError
+= true
+      }
+    )
+  }
+}
+
+import { Component, OnInit } from
+"@angular/core"
+import { fetchUserData } from "./api"
+@Componnet({
+  selector: "app-user",
+  standalone: true,
+  ...
+})
+export class AppUserComponent implements
+OnInit  {
+  userData: { name: string; id: string }
+= {
+   name: "Mike",
+   id: "1"
+  }
+  showComplete = false // show user fetched notification
+  constructor() {}
+  ngOnInit() {
+
+fetchUserData(this.userData.id).subscribe
+(
+      { // observer
+        next: (data) => this.userData =
+data,
+        complete: () => this.showComplete
+= true
+      }
+    )
+  }
+}
