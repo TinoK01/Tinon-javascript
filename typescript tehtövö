@@ -6,11 +6,14 @@ undefined
 
 let first = 'Anders';
 
-first = 1337; // Type 'number' is not assignable to type 'string'
+first = 1337; // Type 'number' is not 
+assignable to type 'string'
 
 let firstName = 'muriel!';
 
-// error: Property 'toUppercase' does not exist on type 'string'.
+// error: Property 'toUppercase' does not 
+exist on type 'string'. Did you mean
+'toUppercase'?
 
 let first;
 first = 'Anders';
@@ -19,7 +22,8 @@ first = 1337;
 let first: string;
 first = 'Anders';
 
-// Error: Type 'number' is not assignable to type 'string'
+// Error: Type 'number' is not assignable 
+to type 'string'
 first = 1337;
 
 function gret(noun: string) {
@@ -28,7 +32,9 @@ function gret(noun: string) {
 
 greet('World'); // Prints: Hello, World
 
-greet(2020); // Argument of type 'number' is not assignable to parameter of type 'string'.
+greet(2020); // Argument of type 'number' 
+is not assignable to parameter of type 
+'string'.
 
 function greet(name?: string) {
   console.log('Hello, ${ name || 'stranger' }!`);
@@ -44,24 +50,31 @@ exponentiation(); // Prints: 4
 
 exponentiation(4); // Prints: 256
 
-exponentiation(true); // Error: Argument of type `true` is not assignable to parameter of type 'number | undefined'.
+exponentiation(true); // Error: Argument 
+of type `true` is not assignable to 
+parameter of type 'number | undefined'.
 
 function factOrFiction() {
   return Math.random() >= .5 ? 'true' : 'false';
 }
 
-const myAnswer : boolean = factOrFiction(); // Type 'string' is not assignable to type 'boolean'
+const myAnswer : boolean = 
+factOrFiction(); // Type 'string' is not 
+assignable to type 'boolean'
 
 function sayHello(): void {
     console.log('Hello!')
 }
 
-function trueOrFalse(value: boolean): boolean {
+function trueOrFalse(value: boolean): 
+boolean {
   if (value) {
     return true;
   }
 
-  return 'false'; // Typescript Error: Type 'string' is not assignable to type 'boolean'.
+  return 'false'; // Typescript Error: 
+Type 'string' is not assignable to type 
+'boolean'.
 }
 
 enum MaritalStatus {
@@ -71,7 +84,8 @@ enum MaritalStatus {
   Divorced
 };
 
-let employee: [string, MaritalStatus, number] = [
+let employee: [string, MaritalStatus, 
+number] = [
   'Bob Jones',
   MaritalStatus.Single,
   39
@@ -99,7 +113,8 @@ const studentGrade: ClassGrade = ClassGrade.Junior;
 console.log('I am a ${studentClass} in ${studentGrade}th grade.`);
 // Prints "I am a JUNIOR in 11th grade."
 
-// This numeric enum type begins with a 1, instead of the default 0
+// This numeric enum type begins with a 
+1, instead of the default 0
 enum Weekdays {
   Monday = 1,
   Tuesday,
@@ -108,7 +123,8 @@ enum Weekdays {
   Friday
 }
 
-// This is a numeric enum type with all explicit values
+// This is a numeric enum type with all 
+explicit values
 enum Grades {
   A = 90,
   B = 80,
@@ -116,7 +132,8 @@ enum Grades {
   D = 60
 }
 
-// This numeric enum type has only some explicit values
+// This numeric enum type has only some 
+explicit values
 enum Prizes {
   Pencil = 5,
   Ruler,     // No error: value is 6
@@ -128,7 +145,9 @@ const day: Weekdays = Weekdays.Wednesday;
 const grade.Grades = Grades.B,
 const prize.Prizes = Prizes.Pen;
 console.log(`On day ${day} of the week, I got ${grade} on my test! I won a prize with ${prize} points!`);
-// Prints "On day 3 of the week, I got 80 on my test! I won a prize with 11 points!"
+// Prints "On day 3 of the week, I got 80 
+on my test! I won a prize with 11 
+points!"
 
 enum Weekend {
   Friday = 5,
@@ -137,9 +156,10 @@ enum Weekend {
 };
 
 // Assign a valid value of wekeend
-const today: Weekend = 7;
+const today: Weekend = 7;       // No
 console.log(`Today is the ${today} th day of the week!`);
-// Prints "Today is the 7th day of the week!"
+// Prints "Today is the 7th day of the 
+week!"
 
 enum MaritalStatus {
   Single = 'SINGLE',
@@ -152,20 +172,29 @@ enum MaritalStatus {
 // Assign a string to a string enum type
 let eligibility: MaritalStatus;
 eligibility = 'SEPARATED';
-// Error: Type '"SEPARATED"' is not assignable to type 'Mar..italStatus'.
+// Error: Type '"SEPARATED"' is not 
+assignable to type 'MaritalStatus'.
 
-eligibility = MaritalStatus.Separated; // No error
+eligibility = MaritalStatus.Separated; 
+// No error
 
 // Define an object type for car
-let car: {make: string, model: string, year: number}:
+let car: {make: string, model: string, 
+year: number}:
 
-car = {make: 'Toyota', model: 'Camry', year: 2020}; // No error
-car = {make: 'Nissan', mode: 'Sentra', year: 2019};
+car = {make: 'Toyota', model: 'Camry', 
+year: 2020}; // No error
+car = {make: 'Nissan', mode: 'Sentra', 
+year: 2019};
 /*
-Error Type '{make: string; mode: string; year: number;}' is not assignable to
-type '{make: string; model: string; year: number;}'.
-object literal may only specify known properties, but 'mode' does not exist in
-type '{make: string; model: string; year: number;}'.
+Error Type '{make: string; mode: string; 
+year: number;}' is not assignable to
+type '{make: string; model: string; year: 
+number;}'.
+object literal may only specify known 
+properties, but 'mode' does not exist in
+type '{make: string; model: string; year: 
+number;}'.
 Did you mean to write 'model'?
 */
 car = {make: 'Chevrolet', model: 'Monte Carlo', year: '1995'};
