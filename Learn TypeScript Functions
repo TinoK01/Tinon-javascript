@@ -1,0 +1,52 @@
+function greet(noun: string) {
+  console.log(`Hello, ${noun}!`);
+}
+
+greet('World'); // Prints: Hello, World
+
+greet(2020); // Argument of type 'number'
+is not assignable to parameter of type
+'string'.
+
+function greet(name?: string) {
+  console.log(`Hello, ${ name ||
+'stranger' }!`);
+}
+
+greet(); // Prints: Hello, stranger!
+
+function exponentiation(power = 1) {
+  console.log(4** power);
+}
+
+exponentiation(); // Prints: 4
+
+exponentiation(4); // Prints: 256
+
+exponentiation(true); // Error: Argument
+of type 'true' is not assignable to
+parameter of type 'number' | undefined'.
+
+function factOrFiction() {
+  return Math.random() >= .5 ? 'true' :
+'false';
+}
+
+const myAnswer : boolean =
+factOrFiction(); // Type 'string' is not
+assignable to type 'boolean'
+
+function sayHello(): void {
+    console.log('Hello!')
+}
+
+function trueOrFalse(value: boolean):
+boolean {
+  if (value) {
+    return true;
+  }
+
+  return 'false'; // Typescript Error:
+Type 'string' is not assignable to type
+'boolean'.
+}
