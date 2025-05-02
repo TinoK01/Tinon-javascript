@@ -1,0 +1,50 @@
+//requiring the splite3 module
+
+const sqlite3 = require('sqlite3');
+
+// creating a database file
+const db = new
+sqlite3.Database('./db.sqlite');
+
+// This will return the first row
+// matching the query.
+db.get("SELECT * FROM drinks WHERE type =
+'soda'")
+
+// Selects a table named Animal and
+// returns only the rows the has the pet as
+// a cat
+db.all("SELECT * FROM Animal WHERE pet =
+'cat'")
+
+db.each("SELECT * FROM Sports WHERE type
+= 'baseball'",
+  (error, row) => {
+  // This will be printed everytime a row
+// is returned
+  console.log`${row.name} is a good
+baseball team`);
+};
+
+//creating a table
+db.run("CREATE TABLE user (id INT, dt
+TEXT)");
+
+//updating existing table
+db.run('INSERT INTO Key (type, color)
+VALUES ($type, $color)
+
+//each request inside this method will be
+executed one by one
+db.serialize(() => {
+  db.run("DROP TABLE Stocks");
+  db.run("CREATE TABLE Stocks");
+  db.run("INSERT INTO Stocks (AMD, MSFT,
+TSLA);
+});
+
+// an if statement can be used to log the
+error
+if (err) {
+        console.log(err);
+}
